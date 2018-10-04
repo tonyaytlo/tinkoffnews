@@ -3,7 +3,9 @@ package com.tony.tinkoffnews.data.cache.serializer
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class Serializer @Inject constructor() {
 
     private val gson = Gson()

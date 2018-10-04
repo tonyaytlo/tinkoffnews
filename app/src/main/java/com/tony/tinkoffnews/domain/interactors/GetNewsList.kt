@@ -12,6 +12,4 @@ class GetNewsList @Inject constructor(private val newsRepository: NewsRepository
         SingleUseCase<List<NewsItem>, Void?>(threadExecutor, postExecutionThread) {
 
     public override fun buildUseCaseObservable(params: Void?) = newsRepository.getNewsList()
-
-
 }

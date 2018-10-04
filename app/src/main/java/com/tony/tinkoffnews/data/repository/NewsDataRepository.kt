@@ -5,7 +5,9 @@ import com.tony.tinkoffnews.data.repository.datasource.NewsDataStoreFactory
 import com.tony.tinkoffnews.domain.repository.NewsRepository
 import io.reactivex.Single
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class NewsDataRepository
 @Inject constructor(private val factory: NewsDataStoreFactory) : NewsRepository {
 

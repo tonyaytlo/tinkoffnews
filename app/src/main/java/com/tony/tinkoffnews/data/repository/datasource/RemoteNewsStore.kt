@@ -5,9 +5,12 @@ import com.tony.tinkoffnews.data.entity.NewsContent
 import com.tony.tinkoffnews.data.entity.NewsItem
 import io.reactivex.Observable
 import ru.galt.app.domain.api.NewsService
+import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class RemoteNewsStore
-constructor(val service: NewsService, val cacheStore: NewsCache) : NewsDataStore {
+@Inject constructor(val service: NewsService, val cacheStore: NewsCache) : NewsDataStore {
 
     override fun getNewsList(): Observable<List<NewsItem>> =
             service.getNewsEntityList().doOnNext { cacheStore.put(it) }

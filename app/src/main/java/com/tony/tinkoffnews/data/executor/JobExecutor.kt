@@ -6,11 +6,13 @@ import java.util.concurrent.ThreadFactory
 import java.util.concurrent.ThreadPoolExecutor
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
+import javax.inject.Singleton
 
 /**
  * Decorated [ThreadPoolExecutor]
  */
-open class JobExecutor @Inject constructor() : ThreadExecutor {
+@Singleton
+class JobExecutor @Inject constructor() : ThreadExecutor {
 
     companion object {
         private val INITIAL_POOL_SIZE = 3

@@ -8,8 +8,7 @@ import javax.inject.Singleton
  * Helper class to do operations on regular files/directories.
  */
 @Singleton
-class FileManager @Inject
-internal constructor() {
+class FileManager @Inject constructor() {
 
     internal fun writeToFile(file: File, fileContent: String) {
         if (!file.exists()) {
