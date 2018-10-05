@@ -21,6 +21,7 @@ abstract class SingleUseCase<T, in Params> constructor(
                 .subscribeOn(Schedulers.from(threadExecutor))
                 .observeOn(postExecutionThread.scheduler) as Single<T>
         addDisposable(single.subscribeWith(singleObserver))
+
     }
 
     fun dispose() {

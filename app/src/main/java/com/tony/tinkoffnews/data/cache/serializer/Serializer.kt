@@ -8,7 +8,7 @@ import javax.inject.Singleton
 @Singleton
 class Serializer @Inject constructor() {
 
-    private val gson = Gson()
+    private val gson by lazy { Gson() }
 
     fun serialize(`object`: Any): String = gson.toJson(`object`)
 
@@ -16,9 +16,7 @@ class Serializer @Inject constructor() {
     fun <T> deserialize(string: String, clazz: Class<T>): T? = gson.fromJson(string, clazz)
 
 
-    fun <T> deserializeList(string: String): List<T>? {
-        val type = object : TypeToken<T>() {}.type
-        return gson.fromJson(string, type)
-    }
+    fun <T> deserializeList(string: String): T? = gson.fromJson(string, object : TypeToken<T>() {}.type)
+
 }
 

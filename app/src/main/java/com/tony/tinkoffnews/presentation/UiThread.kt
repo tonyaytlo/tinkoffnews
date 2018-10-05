@@ -8,8 +8,8 @@ import javax.inject.Singleton
 
 /**
  * MainThread (UI Thread) implementation based on a [Scheduler]
- * which will execute actions on the Android UI thread
  */
+
 @Singleton
 class UiThread @Inject internal constructor() : PostExecutionThread {
 

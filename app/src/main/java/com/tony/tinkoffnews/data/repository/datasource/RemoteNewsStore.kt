@@ -10,10 +10,17 @@ import javax.inject.Singleton
 
 @Singleton
 class RemoteNewsStore
-@Inject constructor(val service: NewsService, val cacheStore: NewsCache) : NewsDataStore {
+@Inject constructor(private val service: NewsService,
+                    private val cacheStore: NewsCache) : NewsDataStore {
 
     override fun getNewsList(): Observable<List<NewsItem>> =
-            service.getNewsEntityList().doOnNext { cacheStore.put(it) }
+            service.getNewsEntityList()
+                    .map {
+                        it.payload
+                    }
+                    .doOnNext {
+                        cacheStore.put(it)
+                    }
 
 
     override fun getNewsContent(id: Int): Observable<NewsContent> {

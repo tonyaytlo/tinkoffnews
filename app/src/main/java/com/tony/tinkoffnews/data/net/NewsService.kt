@@ -1,7 +1,7 @@
 package ru.galt.app.domain.api
 
 import com.tony.tinkoffnews.data.entity.NewsContent
-import com.tony.tinkoffnews.data.entity.NewsItem
+import com.tony.tinkoffnews.data.entity.NewsResponse
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -10,7 +10,7 @@ import retrofit2.http.Query
 interface NewsService {
 
     @GET("news")
-    fun getNewsEntityList(): Observable<List<NewsItem>>
+    fun getNewsEntityList(): Observable<NewsResponse>
 
     @GET("news_content")
     fun getNewsContentEntity(@Query("id") id: Int): Observable<NewsContent>

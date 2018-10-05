@@ -39,12 +39,12 @@ class NewsCacheStore
     override fun get(): Observable<List<NewsItem>> =
             Observable.create<List<NewsItem>> { emitter ->
                 val fileContent = fileManager.readFileContent(dbFile)
-                val newsEntity = serializer.deserializeList<NewsItem>(fileContent)
+                val newsEntity = serializer.deserializeList<List<NewsItem>>(fileContent)
                 if (newsEntity != null) {
                     emitter.onNext(newsEntity)
                     emitter.onComplete()
                 } else {
-                    emitter.onError(IllegalArgumentException())
+                    emitter.onError(IllegalArgumentException()) //mb need custom error impl
                 }
             }
 
