@@ -61,6 +61,13 @@ class NewsListFragment : BaseFragment(), NewsListContract.View {
         }
     }
 
+
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.onDestroy()
+    }
+
+
     override fun showLoading() {
         srNews.isRefreshing = true
     }

@@ -61,6 +61,11 @@ class NewsContentFragment : BaseFragment(), NewsContentContract.View {
 
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.onDestroy()
+    }
+
     override fun showLoading() {
         loading.makeVisible()
     }
