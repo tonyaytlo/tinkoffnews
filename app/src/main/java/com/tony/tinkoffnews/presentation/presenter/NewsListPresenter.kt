@@ -22,10 +22,9 @@ constructor(private val getNewsList: GetNewsList) : BasePresenter<NewsListContra
         loadNews()
     }
 
-
     override fun fetchNews() {
         view?.showLoading()
-        getNewsList.execute(NewsDisposable(), GetNewsList.Params.fetch(true))
+        getNewsList.execute(NewsDisposable(), GetNewsList.Params(true))
     }
 
     override fun loadNews() {

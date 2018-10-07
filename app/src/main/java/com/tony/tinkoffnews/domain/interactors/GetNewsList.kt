@@ -21,11 +21,5 @@ class GetNewsList
     }
 
 
-    class Params private constructor(val fetch: Boolean) {
-        companion object {
-            fun fetch(fetch: Boolean): Params {
-                return Params(fetch)
-            }
-        }
-    }
+    data class Params constructor(val fetch: Boolean)
 }
