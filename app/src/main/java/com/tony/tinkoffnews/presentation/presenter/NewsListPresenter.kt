@@ -2,7 +2,6 @@ package com.tony.tinkoffnews.presentation.presenter
 
 import com.tony.tinkoffnews.data.entity.NewsItem
 import com.tony.tinkoffnews.domain.interactors.GetNewsList
-import com.tony.tinkoffnews.presentation.base.BasePresenter
 import io.reactivex.observers.DisposableSingleObserver
 import javax.inject.Inject
 

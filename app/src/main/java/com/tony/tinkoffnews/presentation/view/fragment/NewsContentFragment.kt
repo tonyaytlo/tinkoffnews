@@ -13,7 +13,6 @@ import com.tony.tinkoffnews.extension.formatToDate
 import com.tony.tinkoffnews.extension.makeGone
 import com.tony.tinkoffnews.extension.makeVisible
 import com.tony.tinkoffnews.extension.textFromHtml
-import com.tony.tinkoffnews.presentation.base.BaseFragment
 import com.tony.tinkoffnews.presentation.internal.di.components.NewsComponent
 import com.tony.tinkoffnews.presentation.presenter.NewsContentContract
 import com.tony.tinkoffnews.presentation.presenter.NewsContentPresenter

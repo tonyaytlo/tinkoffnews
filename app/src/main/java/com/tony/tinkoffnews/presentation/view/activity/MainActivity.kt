@@ -2,7 +2,6 @@ package com.tony.tinkoffnews.presentation.view.activity
 
 import android.os.Bundle
 import com.tony.tinkoffnews.R
-import com.tony.tinkoffnews.presentation.base.BaseActivity
 import com.tony.tinkoffnews.presentation.internal.di.HasInjectComponent
 import com.tony.tinkoffnews.presentation.internal.di.components.DaggerNewsComponent
 import com.tony.tinkoffnews.presentation.internal.di.components.NewsComponent

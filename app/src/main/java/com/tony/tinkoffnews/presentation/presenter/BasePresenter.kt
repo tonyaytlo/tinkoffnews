@@ -1,4 +1,4 @@
-package com.tony.tinkoffnews.presentation.base
+package com.tony.tinkoffnews.presentation.presenter
 
 
 abstract class BasePresenter<V> constructor(protected var view: V? = null) {

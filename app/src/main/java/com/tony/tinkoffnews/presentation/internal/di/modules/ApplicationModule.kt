@@ -1,7 +1,6 @@
 package com.tony.tinkoffnews.presentation.internal.di.modules
 
 import android.content.Context
-import android.content.SharedPreferences
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.tony.tinkoffnews.NewsApp
@@ -28,7 +27,6 @@ import javax.inject.Singleton
 private const val WRITE_TIMEOUT = 10L
 private const val READ_TIMEOUT = 10L
 private const val BASE_URL = " https://api.tinkoff.ru/v1/"
-private const val PREFERENCES_NAME = "ru.tinkoffnews.app"
 
 
 @Module
@@ -74,11 +72,6 @@ class ApplicationModule constructor(private val application: NewsApp) {
     @Provides
     @Singleton
     fun provideGsonConverter(gson: Gson): GsonConverterFactory = GsonConverterFactory.create(gson)
-
-    @Provides
-    @Singleton
-    fun provideSharedPreferences(context: Context): SharedPreferences =
-            context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)
 
     @Provides
     @Singleton

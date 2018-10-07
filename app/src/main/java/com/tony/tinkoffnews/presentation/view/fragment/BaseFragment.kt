@@ -1,4 +1,4 @@
-package com.tony.tinkoffnews.presentation.base
+package com.tony.tinkoffnews.presentation.view.fragment
 
 import android.support.v4.app.Fragment
 import com.tony.tinkoffnews.presentation.internal.di.HasInjectComponent

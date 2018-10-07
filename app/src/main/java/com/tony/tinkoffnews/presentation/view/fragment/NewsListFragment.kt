@@ -12,7 +12,6 @@ import android.view.animation.AnimationUtils
 import android.widget.Toast
 import com.tony.tinkoffnews.R
 import com.tony.tinkoffnews.data.entity.NewsItem
-import com.tony.tinkoffnews.presentation.base.BaseFragment
 import com.tony.tinkoffnews.presentation.internal.di.components.NewsComponent
 import com.tony.tinkoffnews.presentation.presenter.NewsListContract
 import com.tony.tinkoffnews.presentation.presenter.NewsListPresenter
@@ -51,7 +50,7 @@ class NewsListFragment : BaseFragment(), NewsListContract.View {
         presenter.setView(this)
 
     }
-    
+
     private fun initListeners() {
         srNews.setOnRefreshListener {
             presenter.fetchNews()
@@ -73,7 +72,7 @@ class NewsListFragment : BaseFragment(), NewsListContract.View {
 
     override fun setNews(news: List<NewsItem>) {
         if (rvNews.adapter == null) {
-            adapter = NewsAdapter(activity!!, news as MutableList<NewsItem>)
+            adapter = NewsAdapter(activity!!, news.toMutableList())
             adapter!!.getOnClickSubject()
                     .subscribe {
                         openNewsContent(it.id)
@@ -83,10 +82,9 @@ class NewsListFragment : BaseFragment(), NewsListContract.View {
             rvNews.adapter = adapter
 
         } else {
-            adapter?.addAll(news as MutableList<NewsItem>)
+            adapter?.addAll(news.toMutableList())
             rvNews.scheduleLayoutAnimation()
         }
-
     }
 
     override fun showError(msg: String) {
