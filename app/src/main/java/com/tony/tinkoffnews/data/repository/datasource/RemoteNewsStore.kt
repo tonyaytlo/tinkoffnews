@@ -16,13 +16,11 @@ class RemoteNewsStore
 
     override fun getNewsList(): Observable<List<NewsItem>> =
             service.getNewsEntityList()
-                    .observeOn(Schedulers.computation())
                     .map {
                         it.payload.sortedByDescending {
                             it.publicationDate.milliseconds // SORT BY
                         }
                     }
-
                     .doOnNext {
                         cacheStore.put(it)
                     }
