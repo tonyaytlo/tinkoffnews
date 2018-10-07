@@ -8,5 +8,5 @@ interface NewsDataStore {
 
     fun getNewsList(): Observable<List<NewsItem>>
 
-    fun getNewsContent(id: Int): Observable<NewsContent>
+    fun getNewsContent(id: String): Observable<NewsContent>
 }

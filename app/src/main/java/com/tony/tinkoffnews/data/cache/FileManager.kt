@@ -50,12 +50,9 @@ class FileManager @Inject constructor() {
     }
 
     fun clearDirectory(directory: File): Boolean {
-        var result = false
         if (directory.exists()) {
-            for (file in directory.listFiles()) {
-                result = file.delete()
-            }
+            return directory.delete()
         }
-        return result
+        return false
     }
 }

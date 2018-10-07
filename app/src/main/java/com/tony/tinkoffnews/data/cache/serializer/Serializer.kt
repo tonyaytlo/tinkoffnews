@@ -16,7 +16,10 @@ class Serializer @Inject constructor() {
     fun <T> deserialize(string: String, clazz: Class<T>): T? = gson.fromJson(string, clazz)
 
 
-    fun <T> deserializeList(string: String): T? = gson.fromJson(string, object : TypeToken<T>() {}.type)
+    fun <T> deserializeList(string: String, clazz: Class<T>): List<T>? {
+        val typeOfT = TypeToken.getParameterized(List::class.java, clazz).type
+        return gson.fromJson(string, typeOfT)
+    }
 
 }
 

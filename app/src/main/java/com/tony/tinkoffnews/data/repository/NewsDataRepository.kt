@@ -13,7 +13,7 @@ class NewsDataRepository
 
     override fun fetchNewsList(): Single<List<NewsItem>> = factory.fetchNews().singleOrError()
 
-    override fun getNewsContent(id: Int) = factory.getNewsContent(id).singleOrError()
+    override fun getNewsContent(id: String) = factory.getNewsContent(id).singleOrError()
 
     override fun getNewsList() = factory.getNews().singleOrError()
 

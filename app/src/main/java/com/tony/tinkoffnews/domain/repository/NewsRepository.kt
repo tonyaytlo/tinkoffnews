@@ -10,7 +10,7 @@ interface NewsRepository {
 
     fun fetchNewsList(): Single<List<NewsItem>>
 
-    fun getNewsContent(id: Int): Single<NewsContent>
+    fun getNewsContent(id: String): Single<NewsContent>
 
 
 }

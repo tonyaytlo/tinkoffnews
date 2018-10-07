@@ -17,8 +17,8 @@ class NewsDataStoreFactory
         return fetchNews()
     }
 
-    fun fetchNews() = remoteService.getNewsList() // INJECT CYCLER
+    fun fetchNews() = remoteService.getNewsList()
 
-    fun getNewsContent(id: Int) = remoteService.getNewsContent(id)
+    fun getNewsContent(id: String) = remoteService.getNewsContent(id)
 
 }

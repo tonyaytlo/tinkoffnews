@@ -3,7 +3,7 @@ package com.tony.tinkoffnews.presentation.internal.di.components
 import android.content.Context
 import com.tony.tinkoffnews.domain.repository.NewsRepository
 import com.tony.tinkoffnews.presentation.internal.di.modules.ApplicationModule
-import com.tony.tinkoffnews.presentation.view.BaseActivity
+import com.tony.tinkoffnews.presentation.base.BaseActivity
 import dagger.Component
 import org.buffer.android.boilerplate.domain.executor.PostExecutionThread
 import org.buffer.android.boilerplate.domain.executor.ThreadExecutor

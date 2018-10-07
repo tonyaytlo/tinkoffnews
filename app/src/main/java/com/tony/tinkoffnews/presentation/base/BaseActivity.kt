@@ -1,4 +1,4 @@
-package com.tony.tinkoffnews.presentation.view
+package com.tony.tinkoffnews.presentation.base
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity

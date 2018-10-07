@@ -25,9 +25,9 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 
-private const val WRITE_TIMEOUT = 200L
-private const val READ_TIMEOUT = 200L
-private const val BASE_URL = "https://galtapi.azurewebsites.net/"
+private const val WRITE_TIMEOUT = 10L
+private const val READ_TIMEOUT = 10L
+private const val BASE_URL = " https://api.tinkoff.ru/v1/"
 private const val PREFERENCES_NAME = "ru.tinkoffnews.app"
 
 
