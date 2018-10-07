@@ -38,35 +38,30 @@ class NewsListFragment : BaseFragment(), NewsListContract.View {
     private var toastError: Toast? = null
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        getComponent(NewsComponent::class.java).inject(this)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_news_list, container, false)
     }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-            inflater.inflate(R.layout.fragment_news_list, container, false)
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        getComponent(NewsComponent::class.java)?.inject(this)
         srNews.setColorSchemeColors(ContextCompat.getColor(activity!!, R.color.colorPrimary))
         initListeners()
         presenter.setView(this)
+
     }
-
-
+    
     private fun initListeners() {
         srNews.setOnRefreshListener {
             presenter.fetchNews()
         }
     }
 
-
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         presenter.onDestroy()
     }
-
 
     override fun showLoading() {
         srNews.isRefreshing = true

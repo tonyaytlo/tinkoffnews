@@ -43,26 +43,22 @@ class NewsContentFragment : BaseFragment(), NewsContentContract.View {
     private val tvDate by bind<TextView>(R.id.tvDate)
     private val loading by bind<LoadingView>(R.id.loading)
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        getComponent(NewsComponent::class.java).inject(this)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_news_content, container, false)
     }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-            inflater.inflate(R.layout.fragment_news_content, container, false)
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        getComponent(NewsComponent::class.java)?.inject(this)
         tvContent.movementMethod = LinkMovementMethod.getInstance()
         presenter.newsId = id
         presenter.setView(this)
 
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         presenter.onDestroy()
     }
 
@@ -75,14 +71,13 @@ class NewsContentFragment : BaseFragment(), NewsContentContract.View {
     }
 
     override fun setNewsContent(content: NewsContent) {
+
         tvTitle.text = content.title.name
         tvContent.text = content.content.textFromHtml()
         tvDate.text = content.title.publicationDate.milliseconds.formatToDate()
     }
 
     override fun showError(msg: String) {
-        Toast.makeText(activity, msg, Toast.LENGTH_SHORT).show()
+        Toast.makeText(activity!!, msg, Toast.LENGTH_SHORT).show()
     }
-
-
 }

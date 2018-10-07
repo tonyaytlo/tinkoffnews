@@ -18,7 +18,9 @@ class MainActivity : BaseActivity(), HasInjectComponent<NewsComponent> {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initializeInjector()
-        openNewsListFragment()
+        if (supportFragmentManager.findFragmentByTag(NewsListFragment.TAG) == null) {
+            openNewsListFragment()
+        }
     }
 
     private fun initializeInjector() {
